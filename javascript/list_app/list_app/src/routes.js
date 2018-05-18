@@ -1,9 +1,13 @@
 import React from 'react';
-import { Route } from 'react-router';
+import { BrowserRouter, Route } from 'react-router-dom';
 import App from 'modules/App/App';
+import Home from 'modules/Home/Home';
 
 export default (
-      <Route exact path="/" component={App} >
 
-      </Route>
+  <BrowserRouter>
+    <App>
+      <Route exact path="/" component={Home}/>
+    </App>
+  </BrowserRouter>
 )

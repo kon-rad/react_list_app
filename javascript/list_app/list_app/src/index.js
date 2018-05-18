@@ -5,7 +5,7 @@ import { AppContainer } from 'react-hot-loader';
 
 ReactDOM.render(
   <AppContainer>
-    {routes},
+    {routes}
   </AppContainer>,
   document.getElementById('root')
 );
