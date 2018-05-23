@@ -1,0 +1,19 @@
+
+
+.jumbotron_main {
+    text-align:center;
+}
+.button_group_wrapper {
+    text-align:center;
+    display:flex;
+    justify-content:center;
+}
+.quote_wrapper {
+    padding:0px 0px 10px;
+}
+.badge_wrapper {
+    text-align: right;
+}
+.label_wrapper {
+    padding: 10px 0 10px;
+}

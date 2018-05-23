@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Panel, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { Panel, ListGroup, ListGroupItem, Badge } from 'react-bootstrap';
 
 class QuoteList extends Component {
   render() {
@@ -9,16 +9,18 @@ class QuoteList extends Component {
 
     return (
       <Panel>
-        <Panel.Heading>
-        </Panel.Heading>
-
         <ListGroup>
           {    quotes.map((quote, index) => {
             return (index >= start && index < end) ?
               (
                 <ListGroupItem key={index}>
-                  <h5>"{quote.quote}"</h5>
-                  <div> - {quote.source}, {quote.context}</div>
+                  <div className="quote_wrapper">
+                    <h5>"{quote.quote}"</h5>
+                    <div> - {quote.source}, {quote.context}</div>
+                    <div className="badge_wrapper">
+                      <Badge>{quote.theme}</Badge>
+                    </div>
+                  </div>
                 </ListGroupItem>
               ) : '';
           })}
