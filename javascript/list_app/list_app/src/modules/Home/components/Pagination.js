@@ -17,11 +17,9 @@ class Pagination extends Component {
   render() {
     const lastPage = Math.ceil(this.props.total / this.props.perPage);
     let pagination = [];
-    let i = 1;
     for ( let i = 1; i <= lastPage; i++) {
       pagination.push(<ToggleButton value={i} key={i} onClick={() => this.props.clickHandler(i)}>{i}</ToggleButton>)
     }
-    console.log(pagination, lastPage, this.props.perPage,this.props.total);
 
     return (
       <div className="button_group_wrapper">

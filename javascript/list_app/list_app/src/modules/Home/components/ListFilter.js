@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
-import { ButtonToolbar, Button, Well, ControlLabel, FormControl, Label } from 'react-bootstrap';
+import ReactDOM from 'react-dom'
+import { ButtonToolbar, Button, Well, FormControl, Label } from 'react-bootstrap';
 
 class ListFilter extends Component {
   constructor(props, context) {
     super(props, context);
-    this.handleChange = this.handleChange.bind(this);
-    this.state = {
-      search: ''
-    }
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(e) {
-    console.log(e);
-    // this.setState({ search: e[1] });
+  handleSubmit(e) {
+    e.preventDefault();
+    let searchString = ReactDOM.findDOMNode(this.refs.searchString);
+    this.props.handleSearch(searchString.value);
+    searchString.value = '';
   }
 
   render() {
@@ -22,20 +22,20 @@ class ListFilter extends Component {
           <Label>Filter by category:</Label>
         </div>
         <ButtonToolbar>
-          <Button onClick={() => this.props.themeHandler('movie')}>Movie</Button>
+          <Button onClick={() => this.props.themeHandler('movies')}>Movies</Button>
           <Button onClick={() => this.props.themeHandler('games')}>Games</Button>
-          <Button onClick={() => this.props.themeHandler(0)}>All</Button>
+          <Button onClick={() => this.props.themeHandler('all')}>All</Button>
         </ButtonToolbar>
         <div className="label_wrapper">
           <Label>Filter by text:</Label>
-
         </div>
-        <FormControl
-          type="text"
-          value={this.state.search}
-          placeholder="Enter text"
-          onChange={this.handleChange}
-        />
+        <form onSubmit={this.handleSubmit}>
+          <FormControl
+            type="text"
+            ref="searchString"
+            placeholder="Enter text"
+          />
+        </form>
       </Well>
     );
   }

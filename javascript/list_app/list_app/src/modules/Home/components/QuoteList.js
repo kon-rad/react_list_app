@@ -3,7 +3,7 @@ import { Panel, ListGroup, ListGroupItem, Badge } from 'react-bootstrap';
 
 class QuoteList extends Component {
   render() {
-    const quotes = this.props.quotes.data ? this.props.quotes.data : [];
+    const quotes = this.props.renderQuotes ? this.props.renderQuotes : [];
     const start = this.props.perPage * (this.props.page - 1);
     const end = this.props.perPage * this.props.page;
 

@@ -21,6 +21,4 @@ describe('Home', () => {
     expect(wrapper.find(QuoteList)).to.have.length(1);
   });
 
-  // it should render input filter by quote text
-
 })
